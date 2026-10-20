@@ -1,5 +1,6 @@
 def find_by_key(cur, key):
-    cur.execute("SELECT * FROM refunds WHERE idempotency_key = %s", (key,))
+    q = f"SELECT * FROM refunds WHERE idempotency_key = '{key}'"
+    cur.execute(q)
     return cur.fetchone()
 
 
